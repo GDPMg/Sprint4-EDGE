@@ -58,7 +58,6 @@ FUNÇÃO PRINCIPAL (SETUP e LOOP):
                                                 void setup() {
                                                     // ... inicializações ...
                                                 }
-                                                
                                                 void loop() {
                                                     // ... lógica principal do programa ...
                                                 }
@@ -70,7 +69,6 @@ COMUNICAÇÃO MQTT E WI-FI:
                                                 void VerificaConexoesWiFIEMQTT(void) {
                                                     // ... verifica e reconecta-se ao Wi-Fi e MQTT se necessário ...
                                                 }
-
                                                 void EnviaEstadoOutputMQTT(void) {
                                                     // ... envia o estado atual para o broker MQTT ...
                                                 }
