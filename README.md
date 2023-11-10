@@ -16,6 +16,7 @@ O PROJETO É COMPOSTO POR:
 
 EXPLICANDO O CÓDIGO:
 BIBLIOTECAS INCLUÍDAS:
+
                                                 #include <WiFi.h>
                                                 #include <PubSubClient.h>
                                                 #include <LiquidCrystal.h>
@@ -23,6 +24,7 @@ BIBLIOTECAS INCLUÍDAS:
 Aqui, está incluindo as bibliotecas necessárias para trabalhar com Wi-Fi, MQTT (usando o PubSubClient) e um display LCD.
 
 DEFINIÇÕES E CONSTANTES:
+
                                                 #define TOPICO_SUBSCRIBE    "/TEF/lamp104/cmd"
                                                 #define TOPICO_PUBLISH      "/TEF/lamp104/attrs"
                                                 // ... outras definições ...
@@ -35,11 +37,13 @@ DEFINIÇÕES E CONSTANTES:
 Aqui, está definindo tópicos MQTT, pinos GPIO, e outras constantes que serão utilizadas no programa.
 
 INICIALIZAÇÃO DE HARDWARE:
+
                                                 LiquidCrystal lcd(rsPin, enPin, d4Pin, d5Pin, d6Pin, d7Pin);
                                                 
 Aqui, está criando um objeto LiquidCrystal para interagir com o display LCD.
 
 CONFIGURAÇÃO DE WI-FI E MQTT:
+
                                                 const char* SSID = "Wokwi-GUEST";
                                                 const char* PASSWORD = "";
                                                 const char* BROKER_MQTT = "46.17.108.113";
@@ -48,6 +52,7 @@ CONFIGURAÇÃO DE WI-FI E MQTT:
 Estas são as configurações de Wi-Fi e MQTT. O código conecta o ESP32 à rede Wi-Fi e ao broker MQTT.
 
 CALLBACKS MQTT:
+
                                                 void mqtt_callback(char* topic, byte* payload, unsigned int length) {
                                                     // ... lógica para processar mensagens recebidas ...
                                                 } 
@@ -55,6 +60,7 @@ CALLBACKS MQTT:
 Este é um callback chamado sempre que uma mensagem MQTT é recebida no tópico inscrito.
 
 FUNÇÃO PRINCIPAL (SETUP e LOOP):
+
                                                 void setup() {
                                                     // ... inicializações ...
                                                 }
@@ -66,6 +72,7 @@ Aqui, tem as funções setup e loop. A função setup é executada uma vez no in
 
 
 COMUNICAÇÃO MQTT E WI-FI:
+
                                                 void VerificaConexoesWiFIEMQTT(void) {
                                                     // ... verifica e reconecta-se ao Wi-Fi e MQTT se necessário ...
                                                 }
@@ -76,11 +83,13 @@ COMUNICAÇÃO MQTT E WI-FI:
 Estas funções tratam da conexão e envio de mensagens MQTT.
 
 MANIPULÇÃO DE BOTÃO E CONTADOR:
+
                                                 // ... lógica para verificar o estado do botão e manipular um contador ...
                                                 
 Esta parte do código verifica se um botão está pressionado, incrementa um contador e envia a informação via MQTT.
 
 CONTROLE DE SAÍDA (LED):
+
                                                 void InitOutput(void) {
                                                     // ... inicializa o estado do LED ...
                                                 }
@@ -88,14 +97,17 @@ CONTROLE DE SAÍDA (LED):
 Esta função controla a saída do LED, considerando uma lógica invertida.
 
 DISPLAY LCD E OUTRAS FUNCIONALIDADES:
+
                                                 // ... lógica para exibir mensagens no display LCD e controlar um buzzer ...
                                                 
 Aqui, você tem a lógica para exibir mensagens em um display LCD e controlar um buzzer com base no estado do botão.
 
 LOOP PRINCIPAL:
+
                                                 void loop() {
                                                     // ... lógica principal do programa (verificações, envios MQTT, etc.) ...
                                                 }
+                                                
 O loop principal do programa, onde a maioria da lógica acontece.
 
 Este código é bastante abrangente e possui funcionalidades relacionadas à comunicação MQTT, controle de saída, manipulação de botões, exibição em um display LCD e controle de um buzzer. O código é destinado a um sistema embarcado que utiliza um ESP32 para comunicação e controle.
